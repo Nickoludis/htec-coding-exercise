@@ -1,0 +1,48 @@
+.gradle
+
+# built application files
+*.apk
+*.ap_
+/build
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+# fabric
+app/fabric.properties
+
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+# User-specific configurations
+.idea/libraries/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/gradle.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+.idea/runConfigurations.xml
+.idea/dbnavigator.xml
+.idea/copyright/
+
+.DS_Store
+
+build_version.properties
+libs/
+src/lib/
