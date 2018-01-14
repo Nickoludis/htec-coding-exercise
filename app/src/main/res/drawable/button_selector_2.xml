@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:state_focused="false" android:state_pressed="false" >
+        <shape android:shape="rectangle" android:padding="@dimen/button_shape_padding">
+            <solid android:color="#329933"/>
+            <corners
+                android:bottomRightRadius="@dimen/button_bottom_right_radius"
+                android:bottomLeftRadius="@dimen/button_bottom_left_radius"
+                android:topLeftRadius="@dimen/button_top_left_radius"
+                android:topRightRadius="@dimen/button_top_right_radius"/>
+        </shape>
+    </item>
+
+    <item android:state_pressed="true"  >
+        <shape android:shape="rectangle" android:padding="@dimen/button_shape_padding">
+            <solid android:color="#257326"/>
+            <corners
+                android:bottomRightRadius="@dimen/button_bottom_right_radius"
+                android:bottomLeftRadius="@dimen/button_bottom_left_radius"
+                android:topLeftRadius="@dimen/button_top_left_radius"
+                android:topRightRadius="@dimen/button_top_right_radius"/>
+        </shape>
+    </item>
+
+    <item android:state_enabled="false"  >
+        <shape android:shape="rectangle" android:padding="@dimen/button_shape_padding">
+            <solid android:color="#329933"/>
+            <corners
+                android:bottomRightRadius="@dimen/button_bottom_right_radius"
+                android:bottomLeftRadius="@dimen/button_bottom_left_radius"
+                android:topLeftRadius="@dimen/button_top_left_radius"
+                android:topRightRadius="@dimen/button_top_right_radius"/>
+        </shape>
+    </item>
+
+</selector>
+
+

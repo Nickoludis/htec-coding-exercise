@@ -1,3 +1,15 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Dialog -->
+    <dimen name="dialog_title">20sp</dimen>
+    <dimen name="dialog_description">17sp</dimen>
+
+    <!-- Button -->
+    <dimen name="button_radius">30dp</dimen>
+    <dimen name="button_bottom_right_radius">30dp</dimen>
+    <dimen name="button_bottom_left_radius">30dp</dimen>
+    <dimen name="button_top_right_radius">30dp</dimen>
+    <dimen name="button_top_left_radius">30dp</dimen>
+    <dimen name="button_shape_padding">10dp</dimen>
 </resources>

@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import com.htec.codingexercise.ComponentApp;
 import com.htec.codingexercise.ComponentProvider;
-import com.htec.codingexercise.ui.activity.ComponentActivity;
+import com.htec.codingexercise.ui.activity.di.ComponentActivity;
 
 public class DIUtils {
 

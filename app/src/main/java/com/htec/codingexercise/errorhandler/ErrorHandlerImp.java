@@ -1,9 +1,11 @@
-package com.htec.codingexercise.error;
+package com.htec.codingexercise.errorhandler;
 
 import android.app.Activity;
 import android.content.Context;
 
 import com.htec.codingexercise.BuildConfig;
+import com.htec.codingexercise.dialog.DialogManager;
+import com.htec.codingexercise.dialog.messaging.DialogActionListener;
 import com.htec.codingexercise.network.NetworkManager;
 import com.htec.codingexercise.utils.Logger;
 
@@ -11,12 +13,12 @@ public class ErrorHandlerImp implements ErrorHandler {
 
     private Context context;
     private final NetworkManager networkManager;
-//   todo : private final DialogManager dialogManager;
+    private final DialogManager dialogManager;
 
-    public ErrorHandlerImp(Context activity, NetworkManager networkManager /*, DialogManager dialogManager*/) {
+    public ErrorHandlerImp(Context activity, NetworkManager networkManager, DialogManager dialogManager) {
         this.context = activity;
         this.networkManager = networkManager;
-//        this.dialogManager = dialogManager;
+        this.dialogManager = dialogManager;
     }
 
     @Override
@@ -29,7 +31,20 @@ public class ErrorHandlerImp implements ErrorHandler {
 
 //                todo : show proper dialog
 
+                dialogManager.noInternetDialog(new DialogActionListener() {
+                    @Override
+                    public void onClick() {
+
+                    }
+                }, new DialogActionListener() {
+                    @Override
+                    public void onClick() {
+
+                    }
+                });
+
             } else {
+
 //                todo : show dialog
             }
             return true;

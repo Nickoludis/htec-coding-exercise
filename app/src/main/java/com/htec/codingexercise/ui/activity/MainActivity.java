@@ -7,7 +7,9 @@ import android.support.v7.widget.Toolbar;
 import com.htec.codingexercise.ComponentProvider;
 import com.htec.codingexercise.R;
 import com.htec.codingexercise.animation.AnimationUtils;
+import com.htec.codingexercise.dialog.DialogManager;
 import com.htec.codingexercise.navigation.NavigationController;
+import com.htec.codingexercise.ui.activity.di.ComponentActivity;
 import com.htec.codingexercise.ui.fragment.FragmentJsonList;
 import com.htec.codingexercise.utils.InjectorHelper;
 
@@ -20,15 +22,15 @@ public class MainActivity extends AppCompatActivity implements ComponentProvider
     @Inject
     NavigationController navigationController;
 
+    @Inject
+    DialogManager dialogManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        ComponentApp componentApp = component(ComponentApp.class);
-//        componentActivity = componentApp.get(new ModuleErrorHandler(this));
-
-        componentActivity = InjectorHelper.inject(this);
-        InjectorHelper.inject(this, R.id.main_fragment_container, getSupportFragmentManager());
+        componentActivity = InjectorHelper.inject(this, R.id.main_fragment_container, getSupportFragmentManager());
+        InjectorHelper.inject(this);
 
         setContentView(R.layout.activity_main_layout);
 
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements ComponentProvider
         setSupportActionBar(toolbar);
 
         navigateToFragment();
+
+//        dialogManager.noInternetDialog(null, null);
     }
 
     public void navigateToFragment() {

@@ -20,6 +20,4 @@ public interface NavigationController {
      * @param action defines additional parameters {@link NavigationAction}
      */
     void performNavigation(NavigationAction action);
-
-    void showDialog();
 }

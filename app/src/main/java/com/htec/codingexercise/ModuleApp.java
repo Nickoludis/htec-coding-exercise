@@ -1,7 +1,5 @@
 package com.htec.codingexercise;
 
-import com.htec.codingexercise.ui.App;
-
 import javax.inject.Singleton;
 
 import dagger.Module;

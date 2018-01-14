@@ -7,10 +7,10 @@ import com.htec.codingexercise.navigation.action.NavigationActionAddToBackStack;
 
 public class NavigationControllerImpl implements NavigationController {
 
-    protected NavigationActionBuilder navigationActionBuilder;
-    private FragmentTransactionExecutorImpl fragmentTransactionExecutor;
+    private final NavigationActionBuilder navigationActionBuilder;
+    private final FragmentTransactionExecutor fragmentTransactionExecutor;
 
-    public NavigationControllerImpl(FragmentTransactionExecutorImpl fragmentTransactionExecutor) {
+    public NavigationControllerImpl(FragmentTransactionExecutor fragmentTransactionExecutor) {
         this.fragmentTransactionExecutor = fragmentTransactionExecutor;
         this.navigationActionBuilder = new NavigationActionBuilder(this);
     }
@@ -27,12 +27,7 @@ public class NavigationControllerImpl implements NavigationController {
      * {@inheritDoc}
      */
     @Override
-    public void performNavigation(NavigationAction action) {
+    public void performNavigation(@NonNull NavigationAction action) {
         fragmentTransactionExecutor.executeNavigation(action);
-    }
-
-    @Override
-    public void showDialog() {
-        // TODO : Implement dialog manager
     }
 }

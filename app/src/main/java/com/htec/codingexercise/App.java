@@ -1,14 +1,10 @@
-package com.htec.codingexercise.ui;
+package com.htec.codingexercise;
 
 import android.app.Application;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 
-import com.htec.codingexercise.ComponentApp;
-import com.htec.codingexercise.ComponentProvider;
-import com.htec.codingexercise.DaggerComponentApp;
-import com.htec.codingexercise.ModuleApp;
 import com.htec.codingexercise.network.di.ModuleNetworkManager;
 import com.htec.codingexercise.network.NetworkStateReceiver;
 

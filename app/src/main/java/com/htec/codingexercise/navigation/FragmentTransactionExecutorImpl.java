@@ -2,6 +2,7 @@ package com.htec.codingexercise.navigation;
 
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -52,16 +53,25 @@ public class FragmentTransactionExecutorImpl implements FragmentTransactionExecu
                 AnimationUtils.applyFragmentTransactionAnimation(fragmentTransaction, action.animationType);
             }
 
-            if (action.addToBackStack) {
-                fragmentTransaction.addToBackStack(action.fragment.getCanonicalName());
-            }
+            if (action.isDialog && mFragment instanceof DialogFragment) {
 
-            try {
-                fragmentTransaction.add(fragmentContainer, mFragment, action.fragment.getCanonicalName());
-                fragmentTransaction.commit();
-            } catch (IllegalStateException e) {
-                Logger.e(FragmentTransactionExecutor.class, "Error executing navigation", e);
-                throw e;
+                DialogFragment df = (DialogFragment) mFragment;
+                df.show(fragmentTransaction, action.fragment.getCanonicalName());
+                fragmentManager.executePendingTransactions();
+
+            } else {
+
+                if (action.addToBackStack) {
+                    fragmentTransaction.addToBackStack(action.fragment.getCanonicalName());
+                }
+
+                try {
+                    fragmentTransaction.add(fragmentContainer, mFragment, action.fragment.getCanonicalName());
+                    fragmentTransaction.commit();
+                } catch (IllegalStateException e) {
+                    Logger.e(FragmentTransactionExecutor.class, "Error executing navigation", e);
+                    throw e;
+                }
             }
         }
     }

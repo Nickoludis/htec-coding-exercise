@@ -4,21 +4,22 @@ import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 
-import com.htec.codingexercise.error.di.ModuleErrorHandler;
-import com.htec.codingexercise.ui.activity.ComponentActivity;
+import com.htec.codingexercise.dialog.di.ModuleDialogManager;
+import com.htec.codingexercise.errorhandler.di.ModuleErrorHandler;
+import com.htec.codingexercise.ui.activity.di.ComponentActivity;
 import com.htec.codingexercise.ui.activity.MainActivity;
-import com.htec.codingexercise.ui.activity.ModuleMainActivity;
+import com.htec.codingexercise.navigation.di.ModuleNavigationController;
 
 public class InjectorHelper {
 
-    public static void inject(MainActivity activity, @IdRes int layoutId, @NonNull FragmentManager fragmentManager) {
-        DIUtils.getComponentActivity(activity)
-                .get(new ModuleMainActivity(layoutId, fragmentManager))
-                .inject(activity);
+    public static ComponentActivity inject(MainActivity activity, @IdRes int layoutId, @NonNull FragmentManager fragmentManager) {
+        return DIUtils.getComponentApp(activity)
+                .get(new ModuleErrorHandler(activity), new ModuleNavigationController(layoutId, fragmentManager), new ModuleDialogManager(activity));
     }
 
-    public static ComponentActivity inject(MainActivity activity) {
-        return DIUtils.getComponentApp(activity)
-                .get(new ModuleErrorHandler(activity));
+    public static void inject(MainActivity activity) {
+        DIUtils.getComponentActivity(activity)
+                .get()
+                .inject(activity);
     }
 }
