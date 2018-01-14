@@ -14,7 +14,6 @@ import static java.lang.Class.forName;
  */
 public class FragmentFactory {
 
-    private static final String TAG = "FragmentFactory";
     private static FragmentFactory ourInstance = new FragmentFactory();
 
     public static FragmentFactory getInstance() {

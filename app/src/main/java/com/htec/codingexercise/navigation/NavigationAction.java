@@ -1,7 +1,3 @@
-/*
- * © 2017. Amazon.com, Inc. or its affiliates. All Rights Reserved.
- */
-
 package com.htec.codingexercise.navigation;
 
 import android.os.Bundle;

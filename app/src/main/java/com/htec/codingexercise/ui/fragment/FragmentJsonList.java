@@ -1,4 +1,4 @@
-package com.htec.codingexercise.animation.fragment;
+package com.htec.codingexercise.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,10 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.htec.codingexercise.R;
-
-/**
- * Created by Nikola Brankovic - branick2005@gmail.com on 1/13/18.
- */
 
 public class FragmentJsonList extends Fragment {
 

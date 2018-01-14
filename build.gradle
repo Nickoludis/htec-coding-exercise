@@ -1,14 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
+
     repositories {
         google()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -24,4 +23,32 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    // Sdk and tools
+    minSdkVersion = 21
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.2'
+
+    // App dependencies
+    butterknifeVersion = '8.8.1'
+    jacksonVersion = '2.6.1'
+    daggerVersion = '2.7'
+    jsr250Version = '1.0'
+
+    dependencies = [
+
+            butterknife: "com.jakewharton:butterknife:$butterknifeVersion",
+            butterknife_compiler: "com.jakewharton:butterknife-compiler:$butterknifeVersion",
+
+            jackson_annotations: "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion",
+            jackson_core: "com.fasterxml.jackson.core:jackson-core:$jacksonVersion",
+            jackson_databind: "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
+
+            dagger_compiler: "com.google.dagger:dagger-compiler:$daggerVersion",
+            dagger: "com.google.dagger:dagger:$daggerVersion",
+            jsr250: "javax.annotation:jsr250-api:$jsr250Version",
+    ]
 }

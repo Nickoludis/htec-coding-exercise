@@ -10,7 +10,7 @@ import com.htec.codingexercise.animation.AnimationUtils;
 import com.htec.codingexercise.utils.Logger;
 
 /**
- * Helper to perform actual fragment navigation logic
+ * Helper class to perform actual fragment navigation transaction
  */
 public class FragmentTransactionExecutorImpl implements FragmentTransactionExecutor {
 
@@ -61,6 +61,7 @@ public class FragmentTransactionExecutorImpl implements FragmentTransactionExecu
                 fragmentTransaction.commit();
             } catch (IllegalStateException e) {
                 Logger.e(FragmentTransactionExecutor.class, "Error executing navigation", e);
+                throw e;
             }
         }
     }
@@ -130,21 +131,11 @@ public class FragmentTransactionExecutorImpl implements FragmentTransactionExecu
 
     private Fragment getCurrentFragment() {
         try {
-            return (Fragment) fragmentManager
-                    .findFragmentByTag(fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName());
+            return (Fragment) fragmentManager.findFragmentByTag(fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName());
         } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
         }
         return null;
     }
-
-//    /**
-//     * {@inheritDoc}
-//     */
-//    @Override
-//    public void showDialog(OzDialog dialog, String tag) {
-//        dialog.show(fragmentManager, tag);
-//    }
-
 
 }

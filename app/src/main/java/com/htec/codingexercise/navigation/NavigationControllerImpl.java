@@ -5,10 +5,6 @@ import android.support.v4.app.Fragment;
 
 import com.htec.codingexercise.navigation.action.NavigationActionAddToBackStack;
 
-/**
- * Created by Nikola Brankovic - branick2005@gmail.com on 1/12/18.
- */
-
 public class NavigationControllerImpl implements NavigationController {
 
     protected NavigationActionBuilder navigationActionBuilder;
@@ -37,6 +33,6 @@ public class NavigationControllerImpl implements NavigationController {
 
     @Override
     public void showDialog() {
-
+        // TODO : Implement dialog manager
     }
 }
