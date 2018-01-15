@@ -14,6 +14,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_ENDPOINT", '"https://raw.githubusercontent.com/"'
     }
     buildTypes {
         release {
@@ -45,4 +47,11 @@ dependencies {
     compile dependencies.jackson_annotations
     compile dependencies.jackson_core
     compile dependencies.jackson_databind
+
+    compile dependencies.rx_android
+    compile dependencies.rx_java
+
+    compile dependencies.retrofit
+    compile dependencies.retrofit_jakson
+    compile dependencies.retrofit_rx_java
 }

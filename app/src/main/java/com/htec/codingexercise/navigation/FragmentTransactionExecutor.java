@@ -16,5 +16,5 @@ public interface FragmentTransactionExecutor {
 
     String getCurrentFragmentName();
 
-    boolean canGoBack();
+    boolean onBackPress();
 }

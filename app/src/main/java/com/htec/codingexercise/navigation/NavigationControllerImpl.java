@@ -30,4 +30,9 @@ public class NavigationControllerImpl implements NavigationController {
     public void performNavigation(@NonNull NavigationAction action) {
         fragmentTransactionExecutor.executeNavigation(action);
     }
+
+    @Override
+    public boolean canGoBack() {
+        return fragmentTransactionExecutor.onBackPress();
+    }
 }

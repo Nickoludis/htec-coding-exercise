@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 
-import com.htec.codingexercise.network.di.ModuleNetworkManager;
 import com.htec.codingexercise.network.NetworkStateReceiver;
+import com.htec.codingexercise.network.di.ModuleNetworkManager;
+import com.htec.codingexercise.network.http.ModuleHTTPClient;
+import com.htec.codingexercise.utils.rxutils.ModuleScheduler;
 
 public class App extends Application implements ComponentProvider {
 
@@ -30,6 +32,8 @@ public class App extends Application implements ComponentProvider {
         componentApp = DaggerComponentApp.builder()
                 .moduleApp(new ModuleApp(this))
                 .moduleNetworkManager(new ModuleNetworkManager(networkStateReceiver, connectivityManager))
+                .moduleScheduler(new ModuleScheduler())
+                .moduleHTTPClient(new ModuleHTTPClient(BuildConfig.BASE_ENDPOINT, "BASE_ENDPOINT"))
                 .build();
     }
 

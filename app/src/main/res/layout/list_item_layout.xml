@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customAttrs="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/button_selector_3" />
+
+    <com.htec.codingexercise.ui.widget.CustomFontTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Title"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        customAttrs:customFontFamily="FONT_STYLE_5" />
+
+    <com.htec.codingexercise.ui.widget.CustomFontTextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="Description"
+
+        android:maxLines="1"
+        android:singleLine="true"
+        android:ellipsize="end"
+
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        customAttrs:customFontFamily="FONT_STYLE_2" />
+
+</LinearLayout>

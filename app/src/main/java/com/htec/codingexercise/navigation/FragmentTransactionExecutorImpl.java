@@ -110,14 +110,10 @@ public class FragmentTransactionExecutorImpl implements FragmentTransactionExecu
         return getFragmentName(0);
     }
 
-    /**
-     * Retrieves information from the fragment should back navigation be executed.
-     */
     @Override
-    public boolean canGoBack() {
-        Fragment fragment = getCurrentFragment();
-        if (null != fragment) {
-//            return fragment.canGoBack();
+    public boolean onBackPress() {
+        if (fragmentManager.getBackStackEntryCount() == 1) {
+            return false;
         }
         return true;
     }

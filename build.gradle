@@ -37,6 +37,9 @@ ext {
     jacksonVersion = '2.6.1'
     daggerVersion = '2.7'
     jsr250Version = '1.0'
+    rxjavaVersion = '1.3.4'
+    rxandroid = '1.2.1'
+    retrofitVersion = '2.1.0'
 
     dependencies = [
 
@@ -50,5 +53,12 @@ ext {
             dagger_compiler: "com.google.dagger:dagger-compiler:$daggerVersion",
             dagger: "com.google.dagger:dagger:$daggerVersion",
             jsr250: "javax.annotation:jsr250-api:$jsr250Version",
+
+            rx_android: "io.reactivex:rxandroid:$rxandroid",
+            rx_java: "io.reactivex:rxjava:$rxjavaVersion",
+
+            retrofit: "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofit_jakson: "com.squareup.retrofit2:converter-jackson:$retrofitVersion",
+            retrofit_rx_java: "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion",
     ]
 }

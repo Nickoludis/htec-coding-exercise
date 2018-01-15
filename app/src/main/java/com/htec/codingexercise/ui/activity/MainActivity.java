@@ -9,13 +9,18 @@ import com.htec.codingexercise.R;
 import com.htec.codingexercise.animation.AnimationUtils;
 import com.htec.codingexercise.dialog.DialogManager;
 import com.htec.codingexercise.navigation.NavigationController;
+import com.htec.codingexercise.network.NNetworkInfo;
+import com.htec.codingexercise.network.NetworkManager;
+import com.htec.codingexercise.network.NetworkStateReceiverListener;
 import com.htec.codingexercise.ui.activity.di.ComponentActivity;
-import com.htec.codingexercise.ui.fragment.FragmentJsonList;
+import com.htec.codingexercise.ui.fragment.list.FragmentJsonList;
 import com.htec.codingexercise.utils.InjectorHelper;
 
 import javax.inject.Inject;
 
-public class MainActivity extends AppCompatActivity implements ComponentProvider {
+public class MainActivity extends AppCompatActivity implements ComponentProvider, NetworkStateReceiverListener {
+
+    private boolean networkStatusListenerSet = false;
 
     private ComponentActivity componentActivity;
 
@@ -24,6 +29,9 @@ public class MainActivity extends AppCompatActivity implements ComponentProvider
 
     @Inject
     DialogManager dialogManager;
+
+    @Inject
+    NetworkManager networkManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +46,10 @@ public class MainActivity extends AppCompatActivity implements ComponentProvider
         setSupportActionBar(toolbar);
 
         navigateToFragment();
-
-//        dialogManager.noInternetDialog(null, null);
     }
 
     public void navigateToFragment() {
-        navigationController.loadPage(FragmentJsonList.class).addToBackStack(true).isDialog(false).animation(AnimationUtils.Transition.LEFT_TO_RIGHT).load();
+        navigationController.loadPage(FragmentJsonList.class).addToBackStack(true).isDialog(false).animation(AnimationUtils.Transition.RIGHT_TO_LEFT).load();
     }
 
     @Override
@@ -53,5 +59,36 @@ public class MainActivity extends AppCompatActivity implements ComponentProvider
         }
         ComponentProvider componentProvider = ((ComponentProvider) getApplication());
         return componentProvider.component(type);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!networkStatusListenerSet) {
+            networkManager.addListener(this);
+            networkStatusListenerSet = true;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        networkManager.removeListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (navigationController.canGoBack()) {
+            super.onBackPressed();
+        } else {
+            finish();
+        }
+    }
+
+    @Override
+    public void onNetworkStateChange(NNetworkInfo info) {
+        if (!info.isConnected()) {
+            dialogManager.noInternetDialog(null, null);
+        }
     }
 }

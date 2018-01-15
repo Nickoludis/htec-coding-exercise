@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
 
 import com.htec.codingexercise.dialog.messaging.DialogActionListener;
 import com.htec.codingexercise.ui.widget.CustomButton;
@@ -151,10 +150,10 @@ public class Dialog extends DialogFragment {
 
     @Override
     public void onResume() {
-        ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
-        params.width = WindowManager.LayoutParams.MATCH_PARENT;
-        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        getDialog().getWindow().setAttributes((WindowManager.LayoutParams) params);
+//        ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
+//        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+//        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+//        getDialog().getWindow().setAttributes((WindowManager.LayoutParams) params);
         super.onResume();
     }
 

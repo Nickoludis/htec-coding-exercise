@@ -18,7 +18,7 @@ public class CustomButton extends CustomFontButton {
     private static final long CLICK_DELAY_MS = 1000;
 
     /**
-     * Prevent button from being pressed successively two times in a row in less than {@link CLICK_DELAY_MS} milliseconds.
+     * Prevent button from being pressed successively two times in a row in less than {@code CLICK_DELAY_MS} milliseconds.
      *
      * @param listener OnClickListener
      */
