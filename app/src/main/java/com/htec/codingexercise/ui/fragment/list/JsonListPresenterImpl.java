@@ -15,7 +15,7 @@ public class JsonListPresenterImpl implements JsonListPresenter, NetworkStateRec
     private final NetworkManager networkManager;
 
     private Task loadTask;
-    private boolean networkStatusListenerSet = false;
+    protected boolean networkStatusListenerSet = false;
 
     public JsonListPresenterImpl(JsonListView view, JsonListInteractor interactor, NetworkManager networkManager) {
         this.view = view;
@@ -63,14 +63,19 @@ public class JsonListPresenterImpl implements JsonListPresenter, NetworkStateRec
     }
 
     @Override
+    public void onNetworkChange(NNetworkInfo info) {
+        if (info.isConnected()) {
+            loadJsonData();
+        }
+    }
+
+    @Override
     public void onDestroy() {
         networkManager.removeListener(this);
     }
 
     @Override
     public void onNetworkStateChange(NNetworkInfo info) {
-        if (info.isConnected()) {
-            loadJsonData();
-        }
+        onNetworkChange(info);
     }
 }

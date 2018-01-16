@@ -42,6 +42,9 @@ ext {
     retrofitVersion = '2.1.0'
     frescoVersion = '1.7.1'
 
+    junit4Version = '4.12'
+    mockitoCoreVersion = '1.10.19'
+
     dependencies = [
 
             butterknife: "com.jakewharton:butterknife:$butterknifeVersion",
@@ -63,5 +66,8 @@ ext {
             retrofit_rx_java: "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion",
 
             fresco: "com.facebook.fresco:fresco:$frescoVersion",
+
+            junit4: "junit:junit:$junit4Version",
+            mockito_core: "org.mockito:mockito-core:$mockitoCoreVersion",
     ]
 }

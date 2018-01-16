@@ -62,4 +62,7 @@ dependencies {
     compile dependencies.retrofit_rx_java
 
     compile dependencies.fresco
+
+    androidTestCompile dependencies.junit4
+    testCompile dependencies.mockito_core
 }
