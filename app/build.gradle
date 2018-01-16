@@ -54,4 +54,6 @@ dependencies {
     compile dependencies.retrofit
     compile dependencies.retrofit_jakson
     compile dependencies.retrofit_rx_java
+
+    compile dependencies.fresco
 }

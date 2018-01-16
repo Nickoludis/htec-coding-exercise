@@ -25,7 +25,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:background="@color/gray" />
+            android:background="@color/gray_dark" />
 
         <com.htec.codingexercise.ui.widget.CustomFontTextView
             android:id="@+id/dialog_description"
@@ -37,7 +37,7 @@
             android:layout_marginTop="40dp"
             android:gravity="center"
             android:text="Description"
-            android:textColor="@color/gray"
+            android:textColor="@color/gray_dark"
             android:textSize="@dimen/dialog_description"
             custom:customFontFamily="FONT_STYLE_3" />
 

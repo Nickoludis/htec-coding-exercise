@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.htec.codingexercise.network.NetworkStateReceiver;
 import com.htec.codingexercise.network.di.ModuleNetworkManager;
 import com.htec.codingexercise.network.http.ModuleHTTPClient;
@@ -22,6 +23,8 @@ public class App extends Application implements ComponentProvider {
         super.onCreate();
 
         app = this;
+
+        Fresco.initialize(this);
 
         // Initialize connectivity manager
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);

@@ -5,40 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="10dp">
 
-    <ImageView
+    <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/iv"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="10dp"
-        android:src="@drawable/button_selector_3" />
-
-    <com.htec.codingexercise.ui.widget.CustomFontTextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="Title"
-        android:textSize="15sp"
-        android:layout_margin="10dp"
-        customAttrs:customFontFamily="FONT_STYLE_5" />
-
-    <com.htec.codingexercise.ui.widget.CustomFontTextView
-        android:id="@+id/tv_description"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:text="Description"
+        android:layout_height="180dp"
+        customAttrs:roundedCornerRadius="10dp"
+        customAttrs:roundBottomEnd="false"
+        customAttrs:roundBottomStart="false"
+        customAttrs:actualImageScaleType="centerCrop"
+        customAttrs:placeholderImage="@android:color/white" />
 
-        android:maxLines="1"
-        android:singleLine="true"
-        android:ellipsize="end"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        android:orientation="vertical">
 
-        android:textSize="20sp"
-        android:layout_margin="10dp"
-        customAttrs:customFontFamily="FONT_STYLE_2" />
+        <com.htec.codingexercise.ui.widget.CustomFontTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp"
+            android:text="Title"
+            android:textSize="20sp"
+            customAttrs:customFontFamily="FONT_STYLE_5" />
+
+        <com.htec.codingexercise.ui.widget.CustomFontTextView
+            android:id="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="Description"
+            android:textSize="14sp"
+            customAttrs:customFontFamily="FONT_STYLE_2" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.htec.codingexercise.R;
+import com.htec.codingexercise.navigation.NavigationController;
+import com.htec.codingexercise.ui.fragment.details.FragmentDetails;
 import com.htec.codingexercise.ui.fragment.list.adapter.JsonListAdapter;
 import com.htec.codingexercise.ui.fragment.list.adapter.JsonListDelegate;
 import com.htec.codingexercise.ui.fragment.list.dto.ListElement;
@@ -24,6 +26,8 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.htec.codingexercise.ui.fragment.Constants.DETAILS;
+
 public class FragmentJsonList extends Fragment implements JsonListView, JsonListDelegate {
 
     @BindView(R.id.rv_json)
@@ -34,6 +38,9 @@ public class FragmentJsonList extends Fragment implements JsonListView, JsonList
 
     @Inject
     JsonListPresenter presenter;
+
+    @Inject
+    NavigationController navigationController;
 
     private JsonListAdapter adapter;
 
@@ -88,6 +95,8 @@ public class FragmentJsonList extends Fragment implements JsonListView, JsonList
 
     @Override
     public void onItemClick(ListElement element) {
-
+        Bundle arguments = new Bundle();
+        arguments.putSerializable(DETAILS, element);
+        navigationController.loadPage(FragmentDetails.class).addToBackStack(true).isDialog(false).arguments(arguments).load();
     }
 }

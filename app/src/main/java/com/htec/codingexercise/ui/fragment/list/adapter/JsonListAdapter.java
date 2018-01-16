@@ -1,17 +1,16 @@
 package com.htec.codingexercise.ui.fragment.list.adapter;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.htec.codingexercise.R;
-import com.htec.codingexercise.ui.fragment.list.dto.ListElement;
 import com.htec.codingexercise.ui.fragment.list.FragmentJsonList;
+import com.htec.codingexercise.ui.fragment.list.dto.ListElement;
 import com.htec.codingexercise.ui.widget.CustomFontTextView;
 
 import java.util.ArrayList;
@@ -45,6 +44,12 @@ public class JsonListAdapter extends RecyclerView.Adapter<JsonListAdapter.JsonIt
             holder.layoutHolder.setTag(R.id.item_details_id, listElement);
         }
 
+        if (listElement.imageUri != null) {
+            holder.imageView.setImageURI(listElement.imageUri);
+        } else {
+            holder.imageView.setImageURI("");
+        }
+
         if (listElement.title != null) {
             holder.tvTitle.setText(listElement.title);
         } else {
@@ -63,7 +68,6 @@ public class JsonListAdapter extends RecyclerView.Adapter<JsonListAdapter.JsonIt
     @Override
     public JsonItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_layout, parent, false);
-        Context context = parent.getContext();
         return new JsonItemViewHolder(itemView);
     }
 
@@ -83,7 +87,7 @@ public class JsonListAdapter extends RecyclerView.Adapter<JsonListAdapter.JsonIt
     public class JsonItemViewHolder extends RecyclerView.ViewHolder {
 
         public LinearLayout layoutHolder;
-        public ImageView imageView;
+        public SimpleDraweeView imageView;
         public CustomFontTextView tvTitle, tvDescription;
 
         public JsonItemViewHolder(View view) {
@@ -94,9 +98,4 @@ public class JsonListAdapter extends RecyclerView.Adapter<JsonListAdapter.JsonIt
             tvDescription = view.findViewById(R.id.tv_description);
         }
     }
-
-//    @Override
-//    public void onViewDetachedFromWindow(JsonItemViewHolder holder) {
-//        holder.layoutHolder.clearAnimation();
-//    }
 }

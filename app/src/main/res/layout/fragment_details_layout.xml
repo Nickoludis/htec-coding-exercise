@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customAttrs="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="@color/gray">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/iv_details"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        customAttrs:actualImageScaleType="centerCrop"
+        customAttrs:placeholderImage="@android:color/white" />
+
+    <com.htec.codingexercise.ui.widget.CustomFontTextView
+        android:id="@+id/tv_title_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Title"
+        android:layout_gravity="left"
+        android:textSize="20sp"
+        customAttrs:customFontFamily="FONT_STYLE_5" />
+
+    <com.htec.codingexercise.ui.widget.CustomFontTextView
+        android:id="@+id/tv_description_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:text="Description"
+        android:textSize="14sp"
+        customAttrs:customFontFamily="FONT_STYLE_2" />
+
+
+
+</LinearLayout>

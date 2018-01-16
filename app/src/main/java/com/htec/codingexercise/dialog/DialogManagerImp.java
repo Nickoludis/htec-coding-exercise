@@ -44,7 +44,7 @@ public class DialogManagerImp implements DialogManager {
         DialogText title = new DialogText(resourceGetter.getString(R.string.no_internet_title), R.id.dialog_title, R.color.red, 20, CustomFonts.FONT_STYLE_1);
 
         ArrayList<DialogText> content = new ArrayList<>();
-        content.add(new DialogText(resourceGetter.getString(R.string.no_internet_description), R.id.dialog_description, R.color.gray, 17, CustomFonts.FONT_STYLE_3));
+        content.add(new DialogText(resourceGetter.getString(R.string.no_internet_description), R.id.dialog_description, R.color.gray_dark, 17, CustomFonts.FONT_STYLE_3));
 
         ArrayList<DialogButton> buttons = new ArrayList<>();
         DialogText settingsButtonText = new DialogText(resourceGetter.getString(R.string.settings), R.id.dialog_button_left);
