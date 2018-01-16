@@ -3,9 +3,11 @@ package com.htec.codingexercise.dialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Messenger;
+import android.support.annotation.StringRes;
 
 import com.htec.codingexercise.BuildConfig;
 import com.htec.codingexercise.R;
+import com.htec.codingexercise.animation.AnimationUtils;
 import com.htec.codingexercise.dialog.messaging.DialogActionListener;
 import com.htec.codingexercise.dialog.messaging.DialogActionListenerLink;
 import com.htec.codingexercise.navigation.NavigationController;
@@ -63,14 +65,40 @@ public class DialogManagerImp implements DialogManager {
         );
     }
 
+    @Override
+    public void errorDialog(@StringRes int errorTitle, @StringRes int errorDescription, DialogActionListener buttonListener) {
+        Messenger messenger = null;
+        if (buttonListener != null) {
+            messenger = new Messenger(new Handler(new DialogActionListenerLink(buttonListener)));
+        }
+
+        DialogText title = new DialogText(resourceGetter.getString(errorTitle), R.id.dialog_title, R.color.gray_dark, 20, CustomFonts.FONT_STYLE_1);
+        ArrayList<DialogText> content = new ArrayList<>();
+        content.add(new DialogText(resourceGetter.getString(errorDescription), R.id.dialog_description, -1, 17, CustomFonts.FONT_STYLE_3));
+
+        ArrayList<DialogButton> buttons = new ArrayList<>();
+        DialogText textCloseButton = new DialogText((String) resourceGetter.getString(R.string.close), R.id.dialog_button);
+        DialogButton close = new DialogButton(textCloseButton, R.id.dialog_button, true, messenger);
+        buttons.add(close);
+
+        show(new DialogDescriptionBuilder()
+                .setId(R.layout.dialog_one_btn_one_txt)
+                .setButtons(buttons)
+                .setContent(content)
+                .setTitle(title)
+                .createDialogDescription()
+        );
+    }
+
     public void show(DialogDescription dialogDescription) {
 
         Bundle arguments = new Bundle();
         arguments.putParcelable(DIALOG_DESCRIPTION, dialogDescription);
 
         navigationController.loadPage(Dialog.class)
-                .addToBackStack(true)
+                .addToBackStack(false)
                 .isDialog(true)
+                .animation(AnimationUtils.Transition.FADE)
                 .arguments(arguments)
                 .load();
     }

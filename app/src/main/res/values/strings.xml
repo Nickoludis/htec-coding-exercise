@@ -7,4 +7,8 @@
     <string name="no_internet_description">There seems to be no internet\nconnection. Please check your\nconnection and try again.</string>
     <string name="settings">Settings</string>
     <string name="okay">Okay</string>
+    <string name="close">Close</string>
+
+    <string name="something_went_wrong_error">Something went wrong.\nPlease try again later.</string>
+    <string name="error_message">Error message</string>
 </resources>

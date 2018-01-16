@@ -1,77 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:clickable="true"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@color/gray"
         android:orientation="vertical">
 
-        <com.htec.codingexercise.ui.widget.CustomFontTextView
-            android:id="@+id/dialog_title"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="25dp"
-            android:gravity="center"
-            android:text="Title"
-            android:textColor="@color/green"
-            android:textSize="@dimen/dialog_title"
-            custom:customFontFamily="FONT_STYLE_1" />
+            android:orientation="vertical">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/gray_dark" />
+            <com.htec.codingexercise.ui.widget.CustomFontTextView
+                android:id="@+id/dialog_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="25dp"
+                android:gravity="center"
+                android:text="Title"
+                android:textColor="@color/green"
+                android:textSize="@dimen/dialog_title"
+                custom:customFontFamily="FONT_STYLE_1" />
 
-        <com.htec.codingexercise.ui.widget.CustomFontTextView
-            android:id="@+id/dialog_description"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray_dark" />
+
+            <com.htec.codingexercise.ui.widget.CustomFontTextView
+                android:id="@+id/dialog_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="Description"
+                android:textColor="@color/gray_dark"
+                android:textSize="@dimen/dialog_description"
+                custom:customFontFamily="FONT_STYLE_3" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:text="Description"
-            android:textColor="@color/gray_dark"
-            android:textSize="@dimen/dialog_description"
-            custom:customFontFamily="FONT_STYLE_3" />
+            android:orientation="horizontal">
 
+            <com.htec.codingexercise.ui.widget.CustomButton
+                android:id="@+id/dialog_button_left"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                custom:buttonColor="SELECTOR_2"
+                custom:customFontFamily="FONT_STYLE_9" />
+
+            <com.htec.codingexercise.ui.widget.CustomButton
+                android:id="@+id/dialog_button_right"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                custom:buttonColor="SELECTOR_2"
+                custom:customFontFamily="FONT_STYLE_9" />
+
+        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.htec.codingexercise.ui.widget.CustomButton
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:id="@+id/dialog_button_left"
-            android:layout_height="50dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:textSize="20sp"
-            custom:buttonColor="SELECTOR_2"
-            custom:customFontFamily="FONT_STYLE_9" />
-
-        <com.htec.codingexercise.ui.widget.CustomButton
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:id="@+id/dialog_button_right"
-            android:layout_height="50dp"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:textSize="20sp"
-            custom:buttonColor="SELECTOR_2"
-            custom:customFontFamily="FONT_STYLE_9" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

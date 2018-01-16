@@ -45,11 +45,11 @@ public class MainActivity extends AppCompatActivity implements ComponentProvider
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        navigateToFragment();
+        navigateToStartFragment();
     }
 
-    public void navigateToFragment() {
-        navigationController.loadPage(FragmentJsonList.class).addToBackStack(true).isDialog(false).animation(AnimationUtils.Transition.RIGHT_TO_LEFT).load();
+    public void navigateToStartFragment() {
+        navigationController.loadPage(FragmentJsonList.class).addToBackStack(true).isDialog(false).animation(AnimationUtils.Transition.FADE).load();
     }
 
     @Override
@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity implements ComponentProvider
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         networkManager.removeListener(this);
+        super.onDestroy();
     }
 
     @Override
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements ComponentProvider
     @Override
     public void onNetworkStateChange(NNetworkInfo info) {
         if (!info.isConnected()) {
-//            dialogManager.noInternetDialog(null, null);
+            // Do something after connection has been lost, if there is need for some action.
         }
     }
 }

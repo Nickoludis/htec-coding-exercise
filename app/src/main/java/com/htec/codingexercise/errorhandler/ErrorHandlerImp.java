@@ -2,8 +2,11 @@ package com.htec.codingexercise.errorhandler;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.provider.Settings;
 
 import com.htec.codingexercise.BuildConfig;
+import com.htec.codingexercise.R;
 import com.htec.codingexercise.dialog.DialogManager;
 import com.htec.codingexercise.dialog.messaging.DialogActionListener;
 import com.htec.codingexercise.network.NetworkManager;
@@ -28,24 +31,10 @@ public class ErrorHandlerImp implements ErrorHandler {
         }
         if (isAppLive()) {
             if (isNetworkError(error)) {
-
-//                todo : show proper dialog
-
-                dialogManager.noInternetDialog(new DialogActionListener() {
-                    @Override
-                    public void onClick() {
-
-                    }
-                }, new DialogActionListener() {
-                    @Override
-                    public void onClick() {
-
-                    }
-                });
-
+                DialogActionListener settingsListener = () -> context.startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                dialogManager.noInternetDialog(settingsListener, null);
             } else {
-
-//                todo : show dialog
+                dialogManager.errorDialog(R.string.error_message, R.string.something_went_wrong_error, null);
             }
             return true;
         } else {
@@ -65,7 +54,8 @@ public class ErrorHandlerImp implements ErrorHandler {
     }
 
     private boolean isNetworkError(Throwable error) {
-        if (error instanceof java.net.UnknownHostException && !networkManager.isNetworkAvailable()) {
+        if ((error instanceof java.net.UnknownHostException || error instanceof java.net.ConnectException) &&
+                !networkManager.isNetworkAvailable()) {
             return true;
         }
         return false;

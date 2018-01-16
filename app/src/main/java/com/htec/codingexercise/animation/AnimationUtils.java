@@ -26,6 +26,10 @@ public class AnimationUtils {
          * Back animation
          */
         RIGHT_TO_LEFT,
+        /**
+         * Simple fade in animation
+         */
+        FADE,
     }
 
     /**
@@ -51,6 +55,10 @@ public class AnimationUtils {
                         R.anim.slide_right_exit,
                         R.anim.slide_left_enter,
                         R.anim.slide_left_exit);
+                break;
+
+            case FADE:
+                transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
                 break;
 
             case NONE:

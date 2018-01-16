@@ -5,4 +5,6 @@ public interface JsonListPresenter {
     void loadJsonData();
 
     void cancelLoading();
+
+    void onDestroy();
 }

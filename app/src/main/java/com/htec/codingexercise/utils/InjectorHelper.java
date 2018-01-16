@@ -11,7 +11,7 @@ import com.htec.codingexercise.navigation.di.ModuleNavigationController;
 import com.htec.codingexercise.ui.activity.MainActivity;
 import com.htec.codingexercise.ui.activity.di.ComponentActivity;
 import com.htec.codingexercise.ui.fragment.details.FragmentDetails;
-import com.htec.codingexercise.ui.fragment.details.ModuleDetails;
+import com.htec.codingexercise.ui.fragment.details.di.ModuleDetails;
 import com.htec.codingexercise.ui.fragment.list.FragmentJsonList;
 import com.htec.codingexercise.ui.fragment.list.di.ModuleJsonList;
 import com.htec.codingexercise.ui.fragment.list.dto.ListElement;

@@ -1,6 +1,7 @@
-package com.htec.codingexercise.ui.fragment.details;
+package com.htec.codingexercise.ui.fragment.details.di;
 
 import com.htec.codingexercise.annotation.PerActivity;
+import com.htec.codingexercise.ui.fragment.details.FragmentDetails;
 
 import dagger.Subcomponent;
 

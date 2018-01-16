@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.text.TextUtils;
@@ -31,7 +30,6 @@ public class Dialog extends DialogFragment {
         setCancelable(dialogDescription.cancelable);
     }
 
-    @NonNull
     @Override
     public android.app.Dialog onCreateDialog(Bundle savedInstanceState) {
         android.app.Dialog dialog = super.onCreateDialog(savedInstanceState);
@@ -46,6 +44,7 @@ public class Dialog extends DialogFragment {
         setTitle(rootView);
         setButtons(rootView);
         setContent(rootView);
+
         return rootView;
     }
 
@@ -74,15 +73,12 @@ public class Dialog extends DialogFragment {
                 if (dialogButton.background != -1) {
                     button.setButtonBackground(CustomButton.ButtonColor.fromId(dialogButton.background));
                 }
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (dialogButton.onClickListener != null) {
-                            Dialog.this.sendAction(dialogButton.onClickListener);
-                        }
-                        if (dialogButton.dismiss) {
-                            Dialog.this.dismiss();
-                        }
+                button.setOnClickListener(v -> {
+                    if (dialogButton.onClickListener != null) {
+                        Dialog.this.sendAction(dialogButton.onClickListener);
+                    }
+                    if (dialogButton.dismiss) {
+                        Dialog.this.dismiss();
                     }
                 });
             }
@@ -146,15 +142,6 @@ public class Dialog extends DialogFragment {
         if (dialogDescription.onDismissListener != null) {
             sendAction(dialogDescription.onDismissListener);
         }
-    }
-
-    @Override
-    public void onResume() {
-//        ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
-//        params.width = WindowManager.LayoutParams.MATCH_PARENT;
-//        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-//        getDialog().getWindow().setAttributes((WindowManager.LayoutParams) params);
-        super.onResume();
     }
 
     private void sendAction(Messenger messenger) {

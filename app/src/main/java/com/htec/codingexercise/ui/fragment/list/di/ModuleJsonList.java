@@ -2,6 +2,7 @@ package com.htec.codingexercise.ui.fragment.list.di;
 
 import com.htec.codingexercise.annotation.PerActivity;
 import com.htec.codingexercise.errorhandler.ErrorHandler;
+import com.htec.codingexercise.network.NetworkManager;
 import com.htec.codingexercise.ui.fragment.list.JsonListInteractor;
 import com.htec.codingexercise.ui.fragment.list.JsonListInteractorImpl;
 import com.htec.codingexercise.ui.fragment.list.JsonListPresenter;
@@ -29,8 +30,8 @@ public class ModuleJsonList {
 
     @PerActivity
     @Provides
-    public JsonListPresenter providePresenter(JsonListInteractor interactor) {
-        return new JsonListPresenterImpl(view, interactor);
+    public JsonListPresenter providePresenter(JsonListInteractor interactor, NetworkManager networkManager) {
+        return new JsonListPresenterImpl(view, interactor, networkManager);
     }
 
     @PerActivity

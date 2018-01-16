@@ -26,10 +26,6 @@ import static com.htec.codingexercise.network.http.Constants.RETROFIT_API;
 @Component(modules = {ModuleApp.class, ModuleNetworkManager.class, ModuleScheduler.class, ModuleHTTPClient.class})
 public interface ComponentApp {
 
-//    App application();
-//
-//    NetworkManager networkManager();
-
     @Named(RETROFIT_API)
     Retrofit retrofitGames();
 

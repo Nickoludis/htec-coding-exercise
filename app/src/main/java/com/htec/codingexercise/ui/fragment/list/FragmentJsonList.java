@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.htec.codingexercise.R;
+import com.htec.codingexercise.animation.AnimationUtils;
 import com.htec.codingexercise.navigation.NavigationController;
 import com.htec.codingexercise.ui.fragment.details.FragmentDetails;
 import com.htec.codingexercise.ui.fragment.list.adapter.JsonListAdapter;
@@ -72,6 +73,12 @@ public class FragmentJsonList extends Fragment implements JsonListView, JsonList
         super.onStop();
     }
 
+    @Override
+    public void onDestroy() {
+        presenter.onDestroy();
+        super.onDestroy();
+    }
+
     private void initAdapter() {
         if (adapter == null) {
             adapter = new JsonListAdapter();
@@ -97,6 +104,7 @@ public class FragmentJsonList extends Fragment implements JsonListView, JsonList
     public void onItemClick(ListElement element) {
         Bundle arguments = new Bundle();
         arguments.putParcelable(DETAILS, element);
-        navigationController.loadPage(FragmentDetails.class).addToBackStack(true).isDialog(false).arguments(arguments).load();
+        navigationController.loadPage(FragmentDetails.class).addToBackStack(true).isDialog(false).animation(AnimationUtils.Transition.RIGHT_TO_LEFT
+        ).arguments(arguments).load();
     }
 }
