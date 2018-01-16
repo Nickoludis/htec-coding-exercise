@@ -5,7 +5,9 @@ import android.os.Message;
 
 import com.htec.codingexercise.utils.Logger;
 
-
+/**
+ *  Callback interface implementation which handles dialog's "click" messages.
+ */
 public class DialogActionListenerLink implements Handler.Callback {
 
     public static final String WTF = "!!!!!something went wrong!!!!";
@@ -29,5 +31,4 @@ public class DialogActionListenerLink implements Handler.Callback {
         }
         return true;
     }
-
 }

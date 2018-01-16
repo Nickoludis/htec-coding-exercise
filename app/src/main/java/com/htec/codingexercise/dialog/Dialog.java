@@ -19,28 +19,32 @@ import com.htec.codingexercise.ui.widget.CustomButton;
 import com.htec.codingexercise.ui.widget.CustomFontTextView;
 import com.htec.codingexercise.utils.Logger;
 
+/**
+ * DialogFragment which can receive and digest argument parameters and use them to generate and render UI elements.
+ */
 public class Dialog extends DialogFragment {
 
-    DialogDescription dialogDescription;
+    private DialogDescription mDialogDescription;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dialogDescription = getArguments().getParcelable(DialogManagerImp.DIALOG_DESCRIPTION);
-        setCancelable(dialogDescription.cancelable);
+        mDialogDescription = getArguments().getParcelable(DialogManagerImp.DIALOG_DESCRIPTION);
+        setCancelable(mDialogDescription.cancelable);
     }
 
     @Override
     public android.app.Dialog onCreateDialog(Bundle savedInstanceState) {
         android.app.Dialog dialog = super.onCreateDialog(savedInstanceState);
-        // On older Android versions there is empty header inserted into dialogDescription's layout. This is the way to avoid that, hopefully :)
+        // On older Android versions there is empty header inserted into mDialogDescription's layout.
+        // This is the way to avoid that, hopefully :)
         dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         return dialog;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(dialogDescription.id, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(mDialogDescription.id, container, false);
         setTitle(rootView);
         setButtons(rootView);
         setContent(rootView);
@@ -49,11 +53,14 @@ public class Dialog extends DialogFragment {
     }
 
     private void setTitle(ViewGroup rootView) {
-        setDialogText(dialogDescription.title, rootView);
+        setDialogText(mDialogDescription.title, rootView);
     }
 
+    /**
+     * Iterates through passed arguments and customizes dialogs buttons.
+     */
     private void setButtons(ViewGroup rootView) {
-        for (final DialogButton dialogButton : dialogDescription.buttons) {
+        for (final DialogButton dialogButton : mDialogDescription.buttons) {
             if (dialogButton.id != -1) {
                 CustomButton button = (CustomButton) rootView.findViewById(dialogButton.id);
                 button.setVisibility(View.VISIBLE);
@@ -86,11 +93,14 @@ public class Dialog extends DialogFragment {
     }
 
     private void setContent(ViewGroup rootView) {
-        for (DialogText dialogText : dialogDescription.content) {
+        for (DialogText dialogText : mDialogDescription.content) {
             setDialogText(dialogText, rootView);
         }
     }
 
+    /**
+     * Parses passed argument and accordingly changes dialog containing textViews
+     */
     private void setDialogText(final DialogText dialogText, ViewGroup rootView) {
         if (dialogText == null) {
             Logger.d(Dialog.class, "dialogText NULL");
@@ -112,15 +122,12 @@ public class Dialog extends DialogFragment {
             textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, dialogText.fontSize);
         }
         if (dialogText.onClickListener != null || dialogText.dismiss) {
-            textView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (dialogText.onClickListener != null) {
-                        Dialog.this.sendAction(dialogText.onClickListener);
-                    }
-                    if (dialogText.dismiss) {
-                        Dialog.this.dismiss();
-                    }
+            textView.setOnClickListener(view -> {
+                if (dialogText.onClickListener != null) {
+                    Dialog.this.sendAction(dialogText.onClickListener);
+                }
+                if (dialogText.dismiss) {
+                    Dialog.this.dismiss();
                 }
             });
         }
@@ -131,19 +138,22 @@ public class Dialog extends DialogFragment {
     @Override
     public void onCancel(DialogInterface dialogInterface) {
         super.onCancel(dialogInterface);
-        if (dialogDescription.onCancelListener != null) {
-            sendAction(dialogDescription.onCancelListener);
+        if (mDialogDescription.onCancelListener != null) {
+            sendAction(mDialogDescription.onCancelListener);
         }
     }
 
     @Override
     public void onDismiss(DialogInterface dialogInterface) {
         super.onDismiss(dialogInterface);
-        if (dialogDescription.onDismissListener != null) {
-            sendAction(dialogDescription.onDismissListener);
+        if (mDialogDescription.onDismissListener != null) {
+            sendAction(mDialogDescription.onDismissListener);
         }
     }
 
+    /**
+     * Propagates dialog button's click events.
+     */
     private void sendAction(Messenger messenger) {
         Message m = new Message();
         m.what = DialogActionListener.ACTION;

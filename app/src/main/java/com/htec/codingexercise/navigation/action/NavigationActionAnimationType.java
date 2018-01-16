@@ -7,14 +7,15 @@ import com.htec.codingexercise.animation.AnimationUtils;
 import com.htec.codingexercise.navigation.NavigationActionBuilder;
 
 /**
- * Interface for navigation action builder. Classes implementing this support definition of an animation in the navigation action
+ * Represents parameter in fragment transaction operation.
  */
 public interface NavigationActionAnimationType {
+
     /**
      * Set animation type to be executed during fragment transaction.
      *
      * @param animationType type of animation
-     * @return next method from builder chain
+     * @return NavigationActionBuilder instance
      */
     NavigationActionBuilder animation(@NonNull AnimationUtils.Transition animationType);
 }

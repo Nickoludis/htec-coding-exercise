@@ -8,6 +8,9 @@ import android.support.annotation.IdRes;
 
 import com.htec.codingexercise.ui.widget.CustomFonts;
 
+/**
+ * Holds all dialog text ( title and description ) attributes.
+ */
 public class DialogText implements Parcelable {
     public final String text;
     public final @IdRes

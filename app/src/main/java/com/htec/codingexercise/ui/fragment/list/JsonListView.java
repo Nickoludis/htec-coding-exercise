@@ -6,10 +6,14 @@ import java.util.List;
 
 public interface JsonListView {
 
+    /**
+     * Provides loaded data to the view
+     * @param result
+     */
     void setData(List<ListElement> result);
 
     /**
-     * Show / hide loading animation.
+     * Shows / hides loading animation.
      */
     void showLoadingAnimation(boolean show);
 }

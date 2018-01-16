@@ -27,10 +27,10 @@ import static com.htec.codingexercise.network.http.Constants.RETROFIT_API;
 public interface ComponentApp {
 
     @Named(RETROFIT_API)
-    Retrofit retrofitGames();
+    Retrofit retrofitService();
 
     @Named(RETROFIT_API)
-    OkHttpClient okHttpClientGames();
+    OkHttpClient okHttpClient();
 
     ComponentActivity get(ModuleErrorHandler moduleErrorHandler, ModuleNavigationController moduleNavigationController, ModuleDialogManager moduleDialogManager);
 }

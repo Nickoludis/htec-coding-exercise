@@ -12,7 +12,7 @@ import com.htec.codingexercise.navigation.action.NavigationActionFragmentName;
 import com.htec.codingexercise.navigation.action.NavigationActionIsDialog;
 
 /**
- * Simple builder class which provides fluent way of preparing data for fragment transaction.
+ * Simple builder class which provides fluent way of collecting data for fragment transaction.
  */
 public class NavigationActionBuilder implements NavigationActionFragmentName,
         NavigationActionAddToBackStack,

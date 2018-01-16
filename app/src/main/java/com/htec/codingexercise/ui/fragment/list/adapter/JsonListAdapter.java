@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.htec.codingexercise.R;
-import com.htec.codingexercise.ui.fragment.list.FragmentJsonList;
 import com.htec.codingexercise.ui.fragment.list.dto.ListElement;
 import com.htec.codingexercise.ui.widget.CustomFontTextView;
 
@@ -27,9 +26,7 @@ public class JsonListAdapter extends RecyclerView.Adapter<JsonListAdapter.JsonIt
     }
 
     /**
-     * Delegate which establishes connection with view {@link FragmentJsonList}
-     *
-     * @param jsonListDelegate instance of {@link JsonListDelegate}
+     * Sets Adapter's reference to the fragment
      */
     public void setListDelegate(@NonNull JsonListDelegate jsonListDelegate) {
         this.jsonListDelegate = jsonListDelegate;

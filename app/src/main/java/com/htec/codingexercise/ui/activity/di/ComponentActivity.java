@@ -17,10 +17,6 @@ import dagger.Subcomponent;
 @Subcomponent(modules = {ModuleErrorHandler.class, ModuleNavigationController.class, ModuleDialogManager.class})
 public interface ComponentActivity {
 
-//    ErrorHandler errorHandler();
-//
-//    NavigationController navigationController();
-
     ComponentMainActivity get();
 
     ComponentJsonList get(ModuleJsonList module);

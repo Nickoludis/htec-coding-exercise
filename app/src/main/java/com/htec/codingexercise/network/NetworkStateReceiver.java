@@ -12,6 +12,9 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Receiver which notifies subscribed interested parties regarding occurred network event.
+ */
 public class NetworkStateReceiver extends BroadcastReceiver {
 
     protected List<WeakReference<NetworkStateReceiverListener>> listeners = new ArrayList();
@@ -30,6 +33,9 @@ public class NetworkStateReceiver extends BroadcastReceiver {
         notifyStateToAll(new NNetworkInfo(to(ni)));
     }
 
+    /**
+     * Notifies all subscribed listeners about network event.
+     */
     private void notifyStateToAll(NNetworkInfo info) {
         for (WeakReference<NetworkStateReceiverListener> listener : listeners) {
             NetworkStateReceiverListener ll = listener.get();
@@ -87,5 +93,4 @@ public class NetworkStateReceiver extends BroadcastReceiver {
         }
         listeners.removeAll(remove);
     }
-
 }

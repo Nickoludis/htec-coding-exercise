@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements ComponentProvider
     @Override
     public void onNetworkStateChange(NNetworkInfo info) {
         if (!info.isConnected()) {
-            // Do something after connection has been lost, if there is need for some action.
+            // TODO: Do something after connection has been lost, if there is need for some action.
         }
     }
 }

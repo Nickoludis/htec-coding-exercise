@@ -7,6 +7,9 @@ import android.support.annotation.IdRes;
 
 import com.htec.codingexercise.ui.widget.CustomButton;
 
+/**
+ * Holds all dialog button's attributes.
+ */
 public class DialogButton implements Parcelable {
     public final DialogText text;
     public final
@@ -16,7 +19,7 @@ public class DialogButton implements Parcelable {
     public final boolean dismiss;
     public final Messenger onClickListener;
 
-    public DialogButton(DialogText text, int id, boolean dismiss, Messenger onClickListener, CustomButton.ButtonColor background) {
+    public DialogButton(DialogText text, @IdRes int id, boolean dismiss, Messenger onClickListener, CustomButton.ButtonColor background) {
         this.text = text;
         this.id = id;
         this.dismiss = dismiss;

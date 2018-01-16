@@ -19,8 +19,6 @@ import com.htec.codingexercise.utils.Logger;
  */
 public class CustomFontTextView extends AppCompatTextView {
 
-    public static final String TAG = "CustomFontTextView";
-
     private Context ctx;
 
     public CustomFontTextView(Context context) {
@@ -62,6 +60,7 @@ public class CustomFontTextView extends AppCompatTextView {
             }
         } catch (RuntimeException e) {
             Logger.e(CustomFontTextView.class, "Couldn't create typeface from asset font. Font ID = " + fontId, e);
+            throw e;
         }
     }
 }

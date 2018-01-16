@@ -8,6 +8,9 @@ import android.support.annotation.LayoutRes;
 import java.util.ArrayList;
 
 
+/**
+ * Holds all important dialog parameters such as button and text arguments.
+ */
 public class DialogDescription implements Parcelable {
     public final boolean cancelable;
     public final Messenger onCancelListener;
@@ -29,6 +32,7 @@ public class DialogDescription implements Parcelable {
         this.buttons = buttons;
         this.tag = tag;
     }
+
     protected DialogDescription(Parcel in) {
         cancelable = in.readByte() != 0x00;
         onCancelListener = (Messenger) in.readValue(Messenger.class.getClassLoader());

@@ -8,6 +8,9 @@ import android.view.View;
 
 import com.htec.codingexercise.R;
 
+/**
+ * Custom button implementation which allows color and font customisation.
+ */
 public class CustomButton extends CustomFontButton {
 
     private long lastClickTime = 0;
@@ -18,7 +21,7 @@ public class CustomButton extends CustomFontButton {
     private static final long CLICK_DELAY_MS = 1000;
 
     /**
-     * Prevent button from being pressed successively two times in a row in less than {@code CLICK_DELAY_MS} milliseconds.
+     * Prevents button from being pressed successively two times in a row in less than {@code CLICK_DELAY_MS} milliseconds.
      *
      * @param listener OnClickListener
      */
@@ -90,9 +93,6 @@ public class CustomButton extends CustomFontButton {
         setTransformationMethod(null);
 
         setButtonBackground(color);
-
-        // Set font type
-//        setTypeface(CustomFonts.FONT_STYLE_9.asTypeface(getContext()));
     }
 
     public void setFontId(int fontId) {

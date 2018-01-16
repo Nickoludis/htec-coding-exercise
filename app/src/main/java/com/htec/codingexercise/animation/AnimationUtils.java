@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentTransaction;
 import com.htec.codingexercise.R;
 
 /**
- * Provides utils methods for fragment animations
+ * Provides util methods for fragment animations
  */
 
 public class AnimationUtils {
@@ -35,9 +35,9 @@ public class AnimationUtils {
     /**
      * Add transaction animation while changing fragments.
      *
-     * @param transaction    FragmentTransaction
+     * @param transaction    {@link FragmentTransaction}
      * @param transitionType Animation type {@link Transition }
-     * @return
+     * @return {@link FragmentTransaction} with applied animation
      */
     public static FragmentTransaction applyFragmentTransactionAnimation(FragmentTransaction transaction, Transition transitionType) {
 
@@ -62,7 +62,7 @@ public class AnimationUtils {
                 break;
 
             case NONE:
-                //return transaction;
+                //return transaction, no animation applied
         }
 
         return transaction;

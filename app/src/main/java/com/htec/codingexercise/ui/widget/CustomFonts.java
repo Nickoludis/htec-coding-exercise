@@ -6,6 +6,9 @@ import android.graphics.Typeface;
 import java.io.Serializable;
 import java.util.Hashtable;
 
+/**
+ * Definition of all supported application fonts.
+ */
 public enum CustomFonts implements Serializable {
 
     FONT_STYLE_1("fonts/Roboto-Bold.ttf"),

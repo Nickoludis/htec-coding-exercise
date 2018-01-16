@@ -5,9 +5,15 @@ import android.os.Bundle;
 import com.htec.codingexercise.navigation.NavigationActionBuilder;
 
 /**
- * Classes implementing this interface allow to navigate to a pass arguments to fragment
+ * Represents parameter in fragment transaction operation.
  */
 public interface NavigationActionArguments {
 
+    /**
+     * Passes arguments to be passed to fragment.
+     *
+     * @param arguments Bundle instance
+     * @return NavigationActionBuilder instance
+     */
     NavigationActionBuilder arguments(Bundle arguments);
 }

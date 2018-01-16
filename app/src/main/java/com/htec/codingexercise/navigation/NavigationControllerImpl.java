@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment;
 
 import com.htec.codingexercise.navigation.action.NavigationActionAddToBackStack;
 
+/**
+ * NavigationController instance which exposes methods for fragment navigation.
+ */
 public class NavigationControllerImpl implements NavigationController {
 
     private final NavigationActionBuilder navigationActionBuilder;

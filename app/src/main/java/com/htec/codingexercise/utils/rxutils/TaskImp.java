@@ -2,6 +2,9 @@ package com.htec.codingexercise.utils.rxutils;
 
 import rx.Subscription;
 
+/**
+ * Wrapper class around {@link Subscription}
+ */
 public class TaskImp implements Task {
 
     private final Subscription subscription;

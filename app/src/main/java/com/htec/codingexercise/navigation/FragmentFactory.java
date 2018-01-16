@@ -8,7 +8,6 @@ import com.htec.codingexercise.utils.Logger;
 
 import static java.lang.Class.forName;
 
-
 /**
  * Class that instantiate Fragments
  */
@@ -20,14 +19,11 @@ public class FragmentFactory {
         return ourInstance;
     }
 
-    private FragmentFactory() {
-    }
-
     /**
      * Instantiates fragment for the provided class name.
      *
-     * @param fragment  Class name
-     * @param arguments Optional additional fragment arguments
+     * @param fragment  Fragment class name
+     * @param arguments Optional fragment arguments
      * @return Fragment instance
      */
     public Fragment instantiateFragment(String fragment, @Nullable Bundle arguments) {

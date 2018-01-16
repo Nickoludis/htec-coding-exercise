@@ -5,6 +5,9 @@ import android.os.Messenger;
 
 import java.util.ArrayList;
 
+/**
+ * Simple builder class which helps during process of data preparation for dialog creation.
+ */
 public class DialogDescriptionBuilder {
     private boolean cancelable;
     private Messenger onCancelListener;
@@ -53,12 +56,9 @@ public class DialogDescriptionBuilder {
     public DialogDescriptionBuilder setTag(String tag) {
         this.tag = tag;
         return this;
-
     }
+
     public DialogDescription createDialogDescription() {
         return new DialogDescription(cancelable, onCancelListener, onDismissListener, id, title, content, buttons, tag);
     }
-
-
-
 }

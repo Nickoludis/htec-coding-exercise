@@ -17,7 +17,9 @@ import com.htec.codingexercise.utils.ResourceGetter;
 
 import java.util.ArrayList;
 
-
+/**
+ * DialogManager implementation which exposes methods for user dialog creation.
+ */
 public class DialogManagerImp implements DialogManager {
 
     public static final String DIALOG_DESCRIPTION = BuildConfig.APPLICATION_ID + ".DIALOG_DESCRIPTION";
@@ -30,6 +32,9 @@ public class DialogManagerImp implements DialogManager {
         this.resourceGetter = resourceGetter;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void noInternetDialog(DialogActionListener leftButtonListener, DialogActionListener rightButtonListener) {
 
@@ -65,6 +70,9 @@ public class DialogManagerImp implements DialogManager {
         );
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void errorDialog(@StringRes int errorTitle, @StringRes int errorDescription, DialogActionListener buttonListener) {
         Messenger messenger = null;
@@ -90,7 +98,7 @@ public class DialogManagerImp implements DialogManager {
         );
     }
 
-    public void show(DialogDescription dialogDescription) {
+    private void show(DialogDescription dialogDescription) {
 
         Bundle arguments = new Bundle();
         arguments.putParcelable(DIALOG_DESCRIPTION, dialogDescription);

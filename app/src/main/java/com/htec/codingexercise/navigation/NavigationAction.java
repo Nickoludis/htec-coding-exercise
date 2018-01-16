@@ -10,9 +10,28 @@ import com.htec.codingexercise.animation.AnimationUtils;
  */
 class NavigationAction {
 
+    /**
+     * Fragment name
+     */
     public Class<? extends Fragment> fragment;
+
+    /**
+     * Is fragment instance of {@code {@link android.support.v4.app.DialogFragment}}
+     */
     public boolean isDialog;
+
+    /**
+     * Should fragment be added to the back stack
+     */
     public boolean addToBackStack;
+
+    /**
+     * Additional parameters to be passed to the fragment
+     */
     public Bundle arguments;
+
+    /**
+     * Animation to be performed during transaction
+     */
     public AnimationUtils.Transition animationType = AnimationUtils.Transition.RIGHT_TO_LEFT;
 }

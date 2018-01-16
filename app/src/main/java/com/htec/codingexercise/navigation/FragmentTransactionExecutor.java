@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 
 /**
- * Interface to implement to provide component that handles fragment navigation
+ * Defines all essential fragment transaction methods.
  */
 public interface FragmentTransactionExecutor {
 
@@ -12,9 +12,10 @@ public interface FragmentTransactionExecutor {
 
     void clearFragmentManagerBackStack(@NonNull Class<? extends Fragment> fragment);
 
-    void popBackStack();
-
     String getCurrentFragmentName();
 
+    /**
+     * Handles user back press event.
+     */
     boolean onBackPress();
 }

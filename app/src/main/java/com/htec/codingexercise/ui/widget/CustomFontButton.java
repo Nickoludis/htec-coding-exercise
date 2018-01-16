@@ -14,7 +14,7 @@ public class CustomFontButton extends AppCompatButton {
     public static final String TAG = "CustomFontButton";
 
     /**
-     * In case the font hasn't been set use the default value.
+     * In case the font hasn't been set use default value.
      */
     public static final int DEFAULT_FONT = 8; // FONT_STYLE_9
 
@@ -55,6 +55,7 @@ public class CustomFontButton extends AppCompatButton {
             }
         } catch (RuntimeException e) {
             Logger.e(CustomFontButton.class, "Couldn't create typeface from asset font. Font ID = " + fontId, e);
+            throw e;
         }
     }
 }

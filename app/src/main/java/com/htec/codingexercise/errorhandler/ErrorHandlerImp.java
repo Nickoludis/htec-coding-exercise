@@ -12,6 +12,9 @@ import com.htec.codingexercise.dialog.messaging.DialogActionListener;
 import com.htec.codingexercise.network.NetworkManager;
 import com.htec.codingexercise.utils.Logger;
 
+/**
+ * ErrorHandler implementation which handles all provided exceptions.
+ */
 public class ErrorHandlerImp implements ErrorHandler {
 
     private Context context;
@@ -24,8 +27,14 @@ public class ErrorHandlerImp implements ErrorHandler {
         this.dialogManager = dialogManager;
     }
 
+    /**
+     * In case of network error ( e.g. no internet connection ) presents proper dialog. In other cases
+     * if passed error isn't handled already it shows generic error dialog.
+     *
+     * @param error Throwable instance
+     */
     @Override
-    public boolean error(Throwable error) {
+    public void error(Throwable error) {
         if (BuildConfig.DEBUG) {
             Logger.d(ErrorHandlerImp.class, "error:", error);
         }
@@ -36,11 +45,8 @@ public class ErrorHandlerImp implements ErrorHandler {
             } else {
                 dialogManager.errorDialog(R.string.error_message, R.string.something_went_wrong_error, null);
             }
-            return true;
-        } else {
-            // TODO : handle error without having Activity context !!!
-            Logger.e(ErrorHandlerImp.class, "=============>>> ErrorHandler called with non Activity context !!!");
-            return false;
+
+            // TODO : Handle other kinds of exceptions.
         }
     }
 

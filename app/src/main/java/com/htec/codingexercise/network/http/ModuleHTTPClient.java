@@ -41,7 +41,7 @@ public class ModuleHTTPClient {
     }
 
     /**
-     * Provide http cache
+     * Provides http cache
      */
     @Provides
     @Singleton
@@ -53,7 +53,7 @@ public class ModuleHTTPClient {
     }
 
     /**
-     * Provide http client
+     * Provides http client
      *
      * @param cache Http cache
      * @return http client
@@ -74,7 +74,7 @@ public class ModuleHTTPClient {
     }
 
     /**
-     * Provide Retrofit
+     * Provides Retrofit
      *
      * @param okHttpClient http client
      * @return retrofit
@@ -86,7 +86,6 @@ public class ModuleHTTPClient {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(JacksonConverterFactory.create())
-                .addConverterFactory(new ToStringConverterFactory())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(okHttpClient)
                 .build();

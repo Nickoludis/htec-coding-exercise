@@ -11,16 +11,13 @@ import com.htec.codingexercise.animation.AnimationUtils;
 import com.htec.codingexercise.utils.Logger;
 
 /**
- * Helper class to perform actual fragment navigation transaction
+ * Helper class to perform actual fragment navigation transactions
  */
 public class FragmentTransactionExecutorImpl implements FragmentTransactionExecutor {
 
     private FragmentManager fragmentManager;
     private int fragmentContainer;
 
-    /**
-     * {@inheritDoc}
-     */
     public FragmentTransactionExecutorImpl(@IdRes int layoutId, @NonNull FragmentManager fragmentManager) {
         this.fragmentManager = fragmentManager;
         this.fragmentContainer = layoutId;
@@ -95,21 +92,21 @@ public class FragmentTransactionExecutorImpl implements FragmentTransactionExecu
         }
     }
 
-    @Override
-    public void popBackStack() {
-        fragmentManager.popBackStackImmediate();
-    }
-
     /**
      * Returns the class name of the currently visible fragment.
      *
-     * @return
+     * @return fragment name
      */
     @Override
     public String getCurrentFragmentName() {
         return getFragmentName(0);
     }
 
+    /**
+     * Handles user back action.
+     *
+     * @return if there is only one fragment on the stack returns false
+     */
     @Override
     public boolean onBackPress() {
         if (fragmentManager.getBackStackEntryCount() == 1) {
@@ -134,14 +131,4 @@ public class FragmentTransactionExecutorImpl implements FragmentTransactionExecu
         }
         return fragmentName;
     }
-
-    private Fragment getCurrentFragment() {
-        try {
-            return (Fragment) fragmentManager.findFragmentByTag(fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName());
-        } catch (ArrayIndexOutOfBoundsException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
 }
