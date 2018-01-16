@@ -96,7 +96,7 @@ public class FragmentJsonList extends Fragment implements JsonListView, JsonList
     @Override
     public void onItemClick(ListElement element) {
         Bundle arguments = new Bundle();
-        arguments.putSerializable(DETAILS, element);
+        arguments.putParcelable(DETAILS, element);
         navigationController.loadPage(FragmentDetails.class).addToBackStack(true).isDialog(false).arguments(arguments).load();
     }
 }

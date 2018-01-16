@@ -39,7 +39,7 @@ public class InjectorHelper {
 
     public static void inject(FragmentDetails fragment) {
         Bundle details = fragment.getArguments();
-        ListElement transactionDetails = (ListElement) details.getSerializable(DETAILS);
+        ListElement transactionDetails = details.getParcelable(DETAILS);
         DIUtils.getComponentActivity(fragment)
                 .get(new ModuleDetails(fragment, transactionDetails))
                 .inject(fragment);

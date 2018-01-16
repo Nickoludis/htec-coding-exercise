@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements ComponentProvider
     @Override
     public void onNetworkStateChange(NNetworkInfo info) {
         if (!info.isConnected()) {
-            dialogManager.noInternetDialog(null, null);
+//            dialogManager.noInternetDialog(null, null);
         }
     }
 }
